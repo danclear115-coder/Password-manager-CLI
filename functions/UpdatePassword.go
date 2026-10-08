@@ -27,7 +27,7 @@ func outln(a ...any) {
 	fmt.Print(s + "\r\n")
 }
 
-func UpdatePasswordUI() {
+func UpdatePassword() {
 	passwords, err := database.GetPasswords()
 	if err != nil {
 		outln("Database error:", err)
