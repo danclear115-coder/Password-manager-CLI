@@ -3,9 +3,10 @@ package functions
 import (
 	"fmt"
 	"os"
-	"strings"
 	database "pasMan/dbConfig"
 	types "pasMan/types"
+	"strings"
+
 	"golang.org/x/term"
 )
 
@@ -34,7 +35,7 @@ func UpdatePasswordUI() {
 	}
 
 	if len(passwords) == 0 {
-		outln("Паролей пока нет.")
+		outln("There are no passwords yet.")
 		return
 	}
 
@@ -50,10 +51,10 @@ func UpdatePasswordUI() {
 	for {
 		clearScreen()
 
-		outln("ИЗМЕНЕНИЕ ПАРОЛЯ")
-		outln("↑ ↓ — выбрать пароль")
-		outln("Enter — изменить")
-		outln("Esc — выход")
+		outln("PASSWORD CHANGE")
+		outln("↑ ↓ — select password")
+		outln("Enter — update")
+		outln("Esc — exit")
 		outln()
 
 		printPasswordList(passwords, selected)
@@ -151,11 +152,11 @@ func editPassword(password *types.Password) {
 
 		clearScreen()
 
-		outln("ИЗМЕНЕНИЕ ПАРОЛЯ")
+		outln("Update password")
 		outln()
-		outln("Tab — следующее поле")
-		outln("Enter — сохранить")
-		outln("Esc — отменить")
+		outln("Tab — next field")
+		outln("Enter - save")
+		outln("Esc — cancel")
 		outln()
 
 		printField("Service Name", serviceName, field == 0)
@@ -185,7 +186,7 @@ func editPassword(password *types.Password) {
 			)
 			if err != nil {
 				clearScreen()
-				outln("Ошибка обновления:", err)
+				outln("Update error:", err)
 				waitForKey()
 				return
 			}
@@ -195,7 +196,7 @@ func editPassword(password *types.Password) {
 			password.SecLevel = secLevel
 
 			clearScreen()
-			outln("Пароль успешно обновлён!")
+			outln("Press any key...")
 			waitForKey()
 			return
 		}
@@ -252,7 +253,7 @@ func clearScreen() {
 
 func waitForKey() {
 	outln()
-	outln("Нажмите любую клавишу...")
+	outln("Press any key...")
 	key := make([]byte, 1)
 	os.Stdin.Read(key)
 }
