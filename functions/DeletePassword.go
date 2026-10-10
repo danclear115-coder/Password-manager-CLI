@@ -79,8 +79,7 @@ func DeletePassword() {
 
 			clearScreen()
 			outln("Password deleted successfully!")
-			waitForKey()
-
+			
 			if len(passwords) == 0 {
 				clearScreen()
 				outln("No passwords left.")

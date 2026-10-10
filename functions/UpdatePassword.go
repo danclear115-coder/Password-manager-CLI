@@ -196,8 +196,7 @@ func editPassword(password *types.Password) {
 			password.SecLevel = secLevel
 
 			clearScreen()
-			outln("Press any key...")
-			waitForKey()
+			
 			return
 		}
 
