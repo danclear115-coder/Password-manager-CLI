@@ -13,9 +13,9 @@ func UserChoice(choice string) {
 	case "2":
 		functions.AddPassword()
 	case "3":
-		functions.UpdatePasswordUI()
+		functions.UpdatePassword()
 	case "4":
-
+		functions.DeletePassword()
 	case "5":
 		fmt.Println("Exit from programm")
 	default:
