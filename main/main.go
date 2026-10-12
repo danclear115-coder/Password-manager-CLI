@@ -2,13 +2,18 @@ package main
 
 import (
 	"fmt"
-	ui "pasMan/ui"
 	database "pasMan/dbConfig"
+	auth "pasMan/dbConfig"
+	ui "pasMan/ui"
 )
 
 func main() {
 
 	database.InitDB()
+
+	if !auth.RequireAuth() {
+		return
+	}
 
 	for {
 
