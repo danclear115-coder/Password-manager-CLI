@@ -3,6 +3,7 @@ package ui
 import (
 	"fmt"
 	functions "pasMan/functions"
+	"pasMan/ui/theme"
 )
 
 func UserChoice(choice string) {
@@ -17,9 +18,12 @@ func UserChoice(choice string) {
 	case "4":
 		functions.DeletePassword()
 	case "5":
-		fmt.Println("Exit from programm")
+		fmt.Println()
+		fmt.Println(theme.Notice("Goodbye!"))
+		fmt.Println()
 	default:
-		fmt.Println("Unrecognized input")
+		fmt.Println()
+		fmt.Println(theme.Warning("Unrecognized input — pick a number from 1 to 5"))
 	}
 
 }
